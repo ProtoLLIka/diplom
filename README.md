@@ -11,7 +11,8 @@
 <p align="center">
   <img src="https://lh3.googleusercontent.com/6AC1yJ7rbZr6dIDpcuBWAs5LK6vIBW_XHlGT_8vx87FuH14w4jj92iVTUUcZ3myik59s7WzSemBuqkdEeSzX0zJiGItF2qUVy-D-TORUpbWMeNtSLGOnnW8S_4MEZCRcyvJ4GQHLNrbW0hqW1qsdXW4c_ZYqK8hnTkgt36prDHDNgJWW4li0exo2wciRWhGiawM_hY6oR8I0oAWr7hN6b50hTJAcJ0Iqr3LeHcQsEF9_uMVhY5gDU6Ex3AM8QDYyAXdIV1VM2dg7zmhdnMoWKNwIjcEoOEXeOyVHvQEQIaPqizL_pfDEuSYfC2wMG09lLyDxxmRMetzRqczN7-qJcygYiXLRAi3xYFU07DxnvKAqepOo4U47UTtzUFNlvmL7ZMYIqiHZQX73yNqf412Vroyc3AmJVMEldNF1oLYaiPtZOqNn4Pj8UQG1tNPtY0NWtfi1GUxOO4Va0UyyH2RQoab4XkXkMfKwzExEMWFo5cU2_gEt6Ocw2kQX2yy7Gpr5qXvbK1p0_JlYLmJ4N9UowQAiyAmxuLOdSWHKxmyfxp9tJVp2q_FSW9He8sYwOehhCQlSeAOWiNEqNcb5iar0kfZ3oX--l0yEW5zsBZW4YSlF2nQ60-rXcJq5d04CbIv4sDJLbapVtmTyU6rlyNreqDgrxDBIlQ7NwPlCiJWyVa-s12NusGLR3bHq8px-EQ=w600-h455-no?authuser=0"/>
 </p>
-Основные модули системы написаны на TypeScript. 
+Основные модули системы написаны на TypeScript.
+
 ## Чуть подробнее про все
 ### Сервер для работы с сервисами 
 Его основными задачами является:
@@ -19,5 +20,5 @@
 2. Обработка запросов с Trello. Обратываются они через подписку на webhook на события создания карточки.
 3. Автоматическая отправка сообщений о существующих актуальных задачах соответствующим пользователям. Например, если есть задача с тегом 'front-end', то разработчику-дежурнуму отправляется в начале рабочего дня сообщение: "Есть задачи: Название задачи 1 (<--- слово-ссылка на карточку)" 
 4. Работа с БД. Работа происходит через механизмы библиотеки TypeORM. В БД вносятся новые пользователи, считываются нужные данные, ну и так далее...
-## Сервер с запущенной моделью нейронной сети
+### Сервер с запущенной моделью нейронной сети
 Была скачана предобученная модель базы данных и после изменений кофига НС, она была переделана для классификации по необходимым классам (front-end и back-end). Тут практически нету рукописного кода.
