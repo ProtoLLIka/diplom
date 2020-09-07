@@ -1,0 +1,98 @@
+{
+    "dataset_reader": {
+      "class_name": "basic_classification_reader",
+      "x": "text",
+      "y": "label",
+      "data_path": "./dataSet"
+    },
+    "dataset_iterator": {
+      "class_name": "basic_classification_iterator",
+      "seed": 42,
+      "split_seed": 23,
+      "field_to_split": "train",
+      "split_fields": [
+        "train",
+        "valid"
+      ],
+      "split_proportions": [
+        0.9,
+        0.1
+      ]
+    },
+    "chainer": {
+      "in": [
+        "x"
+      ],
+      "in_y": [
+        "y"
+      ],
+      "pipe": [
+        {
+          "id": "classes_vocab",
+          "class_name": "simple_vocab",
+          "fit_on": [
+            "y"
+          ],
+          "save_path": "./classes/classes.dict",
+          "load_path": "./classes/classes.dict",
+          "in": "y",
+          "out": "y_ids"
+        },
+        {
+          "in": [
+            "x"
+          ],
+          "out": [
+            "x_vec"
+          ],
+          "fit_on": [
+            "x",
+            "y_ids"
+          ],
+          "id": "tfidf_vec",
+          "class_name": "sklearn_component",
+          "save_path": "./model/tfidf_v1.pkl",
+          "load_path": "./model/tfidf_v1.pkl",
+          "model_class": "sklearn.feature_extraction.text:TfidfVectorizer",
+          "infer_method": "transform"
+        },
+        {
+          "in": "x",
+          "out": "x_tok",
+          "id": "my_tokenizer",
+          "class_name": "nltk_moses_tokenizer",
+          "tokenizer": "wordpunct_tokenize"
+        },
+        {
+          "in": [
+            "x_vec"
+          ],
+          "out": [
+            "y_pred"
+          ],
+          "fit_on": [
+            "x_vec",
+            "y"
+          ],
+          "class_name": "sklearn_component",
+          "main": true,
+          "save_path": "./model/logreg_v2.pkl",
+          "load_path": "./model/logreg_v2.pkl",
+          "model_class": "sklearn.linear_model:LogisticRegression",
+          "infer_method": "predict",
+          "ensure_list_output": true
+        }
+      ],
+      "out": [
+        "y_pred"
+      ]
+    },
+    "train": {
+      "batch_size": 64,
+      "metrics": [
+        "accuracy"
+      ],
+      "validate_best": true,
+      "test_best": false
+    }
+  }
