@@ -7,12 +7,7 @@
 Система предназначена для использования в след. сценарии: на рабочем месте каждый день назначается дежурный который "разгребает" задачи поступившие от менеджеров о багах и репортах.
 ### На чем сделано
 Данная системя представляет из себя NodeJS web-сервер построенный на базе фреймворка NestJS. Система имеет интеграции с такими сервисами как мессенджер telegram (в роли бота) и таск-менеджер Trello (в роли улучшения для доски с задачами). Сама система - это обрабочик для работы с сервисами и отдельный сервер нейросети.
-Вот так выглядит общая структура:
-<p align="center">
-  <img src="https://lh3.googleusercontent.com/KtpFnyxvOQPrPlh2GJIS1UjiQlK4XRShhk6cEV2K9-NFPiTRx2_FgX05Q0LVdFA-mm_oQY6hHVt9zQwuUWJrJCGB39ks0-bnirNugcBZRb6ck7JeaNSCjdUq6LVHtf5SGA4D5SBBkOUvcblC49-yCC_KLZ2jdc34G3azckKE1jOk9zSPysVsCHaKviDT2ePqCUMula_iYKvuqleO0IHbmdOVZXCzH_9aSud6xHg_Qv8M-yJFnmm6VZmfXYlMCbBQv9pAWCmiYR2cJWv8FnDDm3wSJNdQI0mkTO246OLrT1xZRSfllM8KhQk3oQ7EcAS6rKRyxEx4gbTlCy1ZpqTuc3HhUPI7wWyFcnk5pQAMrBs_amWsfKHhFb-FaOGruiQdGnZZJbT7xmndHFmSU2Y6pOP5NVn2c0RqY1DNW_VkPeKXF77aKmT5RZnZ_wxAt33lJHqug1PuTicqKJn0Y29na3BUHUtjTj4Ii_XmEMANP0swN6DSccqmu9k1ephNO2kX6Wv--MvLWLgTUD7b1k5SkNGkKkjTg7qPJStcGDOkQxk2Yp67gYyKrzA9AEJA9jSSYIPOU1vFiF61mXUkJq-i7l44xm0uKY88s99bZd1ktnXvXrnIP6upVEmdBQeJV3_n3CMRGRR2AIi-7sgvzYjoA2uaGx4nA6RRTZyooEwm9PBaeV_SkjXb4UOpPTJXzQ=w941-h699-no?authuser=0" width="600"/>
-</p>
 Основные модули системы написаны на TypeScript.
-
 ## Чуть подробнее про все
 ### Сервер для работы с сервисами 
 Его основными задачами является:
